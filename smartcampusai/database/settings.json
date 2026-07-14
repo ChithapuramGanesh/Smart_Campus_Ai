@@ -1,0 +1,123 @@
+{
+    "system": {
+        "theme": "dark",
+        "openai_model": "gpt-4o-mini",
+        "campus_name": "Smart Campus Institute of AI"
+    },
+    "students": [
+        {
+            "id": "STU001",
+            "name": "Alex Mercer",
+            "email": "alex@smartcampus.edu",
+            "department": "Computer Science",
+            "gpa": 3.8,
+            "status": "Active"
+        },
+        {
+            "id": "STU002",
+            "name": "Sarah Connor",
+            "email": "sarah@smartcampus.edu",
+            "department": "Cybernetics",
+            "gpa": 3.9,
+            "status": "Active"
+        },
+        {
+            "id": "STU003",
+            "name": "Bruce Wayne",
+            "email": "bruce@smartcampus.edu",
+            "department": "Business & Engineering",
+            "gpa": 3.5,
+            "status": "On Leave"
+        },
+        {
+            "id": "STU004",
+            "name": "Diana Prince",
+            "email": "diana@smartcampus.edu",
+            "department": "Archaeology",
+            "gpa": 4.0,
+            "status": "Active"
+        },
+        {
+            "id": "STU005",
+            "name": "Barry Allen",
+            "email": "barry@smartcampus.edu",
+            "department": "Chemistry & Forensics",
+            "gpa": 3.2,
+            "status": "Active"
+        },
+        {
+            "id": "STU006",
+            "name": "Adithya hacker",
+            "email": "adhi@gmail.com",
+            "department": "Computer Science",
+            "gpa": 2.0,
+            "status": "Active"
+        }
+    ],
+    "faculty": [
+        {
+            "id": "FAC001",
+            "name": "Dr. Alan Turing",
+            "email": "turing@smartcampus.edu",
+            "department": "Computer Science",
+            "designation": "Professor & Head",
+            "office": "Room 401"
+        },
+        {
+            "id": "FAC002",
+            "name": "Dr. Ada Lovelace",
+            "email": "lovelace@smartcampus.edu",
+            "department": "Mathematics",
+            "designation": "Associate Professor",
+            "office": "Room 302"
+        },
+        {
+            "id": "FAC003",
+            "name": "Dr. Richard Feynman",
+            "email": "feynman@smartcampus.edu",
+            "department": "Physics",
+            "designation": "Professor",
+            "office": "Room 105"
+        },
+        {
+            "id": "FAC004",
+            "name": "Dr. Marie Curie",
+            "email": "curie@smartcampus.edu",
+            "department": "Chemistry",
+            "designation": "Professor",
+            "office": "Room 204"
+        }
+    ],
+    "attendance": [
+        {
+            "date": "2026-07-10",
+            "present": 420,
+            "absent": 30,
+            "late": 10
+        },
+        {
+            "date": "2026-07-11",
+            "present": 415,
+            "absent": 32,
+            "late": 13
+        },
+        {
+            "date": "2026-07-12",
+            "present": 435,
+            "absent": 15,
+            "late": 10
+        },
+        {
+            "date": "2026-07-13",
+            "present": 440,
+            "absent": 12,
+            "late": 8
+        },
+        {
+            "date": "2026-07-14",
+            "present": 438,
+            "absent": 14,
+            "late": 8
+        }
+    ]
+}
