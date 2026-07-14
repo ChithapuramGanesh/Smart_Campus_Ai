@@ -12,8 +12,8 @@ def show_register_page() -> None:
     st.markdown(
         """
         <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="font-weight: 800; font-size: 2.5rem; background: linear-gradient(45deg, #6C63FF, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px;">Join SmartCampus</h1>
-            <p style="color: #94A3B8; font-size: 1rem;">Create an administrative or student workspace account</p>
+            <h1 style="font-weight: 800; font-size: 2.5rem; background: linear-gradient(135deg, #4F46E5, #818CF8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px;">Join SmartCampus</h1>
+            <p style="color: var(--text-secondary); font-size: 1rem;">Create an administrative or student workspace account</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -50,7 +50,7 @@ def show_register_page() -> None:
         st.markdown(
             """
             <div style="text-align: center; margin-top: 20px;">
-                <span style="color: #94A3B8; font-size: 0.9rem;">Already have an account? </span>
+                <span style="color: var(--text-secondary); font-size: 0.9rem;">Already have an account? </span>
             </div>
             """, 
             unsafe_allow_html=True

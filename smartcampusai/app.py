@@ -57,10 +57,10 @@ def apply_custom_assets() -> None:
         
         bg_css_parts = []
         if bg_base64:
-            # We add a dark overlay on the background image to ensure texts in front stand out perfectly
+            # Subtle gradient overlay over our premium mesh image
             bg_css_parts.append(f"""
             .stApp {{
-                background-image: linear-gradient(rgba(15, 15, 26, 0.75), rgba(15, 15, 26, 0.75)), url("data:image/png;base64,{bg_base64}");
+                background-image: linear-gradient(rgba(9, 11, 16, 0.8), rgba(9, 11, 16, 0.88)), url("data:image/png;base64,{bg_base64}");
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -69,42 +69,46 @@ def apply_custom_assets() -> None:
         else:
             bg_css_parts.append("""
             .stApp {
-                background-color: #0F0F1A !important;
+                background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                            radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
+                            #090B10 !important;
             }
             """)
             
-        # Add high contrast dark mode overrides
         bg_css_parts.append("""
-        /* Contrast text styling */
-        p, li, label, th, td, span, div[data-testid="stMarkdownContainer"] p {
-            color: #F8FAFC !important;
-            font-size: 1rem;
+        /* Light/Dark specific setup */
+        .stApp {
+            color: var(--text-primary);
         }
+        
+        /* Contrast text styling for markdown/general elements */
+        div[data-testid="stMarkdownContainer"] p, 
+        div[data-testid="stMarkdownContainer"] li {
+            color: var(--text-secondary);
+        }
+        
         h1, h2, h3, h4, h5, h6 {
-            color: #FFFFFF !important;
+            color: var(--text-primary) !important;
         }
         
         /* Make inputs, dropdowns, forms highly readable and distinct */
         input, select, textarea, div[role="button"], div[data-baseweb="select"] {
-            color: #FFFFFF !important;
-            background-color: #1A1A2E !important;
-            border: 1px solid rgba(108, 99, 255, 0.4) !important;
+            color: var(--text-primary) !important;
+            background-color: var(--input-bg) !important;
+            border: 1px solid var(--input-border) !important;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent-indigo) !important;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
         }
         
         div[data-testid="stForm"] {
-            background-color: rgba(26, 26, 46, 0.6) !important;
-            border: 1px solid rgba(108, 99, 255, 0.3) !important;
-            border-radius: 12px;
-            padding: 20px;
-        }
-        
-        /* Highlight metrics inside the cards */
-        .metric-value {
-            color: #FFFFFF !important;
-        }
-        
-        .metric-label {
-            color: #CBD5E1 !important;
+            background-color: rgba(20, 24, 37, 0.5) !important;
+            border: 1px solid var(--card-border) !important;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15) !important;
         }
         """)
         
@@ -114,14 +118,28 @@ def apply_custom_assets() -> None:
         light_bg_css = """
         <style>
         .stApp {
-            background: linear-gradient(135deg, #F8FAFC, #E2E8F0) !important;
+            --bg-primary: #F8FAFC;
+            --bg-secondary: #F1F5F9;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(0, 0, 0, 0.04);
+            --card-hover-border: rgba(79, 70, 229, 0.2);
+            --card-hover-shadow: rgba(79, 70, 229, 0.06);
+            
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            
+            --input-bg: #FFFFFF;
+            --input-border: #E2E8F0;
+            
+            background: linear-gradient(135deg, #F8FAFC, #F1F5F9) !important;
             color: #0F172A !important;
         }
         
-        /* High contrast light mode text overrides */
-        p, li, label, th, td, span, div[data-testid="stMarkdownContainer"] p {
-            color: #1E293B !important;
-            font-size: 1rem;
+        /* Light mode text overrides */
+        div[data-testid="stMarkdownContainer"] p,
+        div[data-testid="stMarkdownContainer"] li {
+            color: #475569 !important;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -130,24 +148,24 @@ def apply_custom_assets() -> None:
         
         /* Override dark theme card background and text colors */
         .glass-card {
-            background: rgba(255, 255, 255, 0.9) !important;
-            border: 1px solid rgba(0, 0, 0, 0.12) !important;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08) !important;
+            background: rgba(255, 255, 255, 0.75) !important;
+            border: 1px solid rgba(0, 0, 0, 0.04) !important;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04) !important;
         }
         
         .metric-card {
             background: #FFFFFF !important;
-            border: 1px solid rgba(108, 99, 255, 0.25) !important;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06) !important;
+            border: 1px solid rgba(79, 70, 229, 0.12) !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03) !important;
         }
         
         .metric-label {
-            color: #475569 !important;
+            color: #64748B !important;
         }
         
         .chat-assistant {
-            background: rgba(0, 0, 0, 0.04) !important;
-            border: 1px solid rgba(0, 0, 0, 0.08) !important;
+            background: rgba(0, 0, 0, 0.02) !important;
+            border: 1px solid rgba(0, 0, 0, 0.04) !important;
             color: #0F172A !important;
         }
         
@@ -155,14 +173,15 @@ def apply_custom_assets() -> None:
         input, select, textarea, div[role="button"], div[data-baseweb="select"] {
             color: #0F172A !important;
             background-color: #FFFFFF !important;
-            border: 1px solid #94A3B8 !important;
+            border: 1px solid #CBD5E1 !important;
         }
         
         div[data-testid="stForm"] {
             background-color: #FFFFFF !important;
-            border: 1px solid #CBD5E1 !important;
-            border-radius: 12px;
-            padding: 20px;
+            border: 1px solid #E2E8F0 !important;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.04) !important;
         }
         </style>
         """

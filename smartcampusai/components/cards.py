@@ -15,7 +15,7 @@ def render_glass_card(title: str, content_html: str, theme: str = "dark") -> Non
     
     html = textwrap.dedent(f"""
     <div class="{card_class}">
-        <h3 style="margin-top: 0; margin-bottom: 15px; font-weight: 700; color: #E2E8F0; font-size: 1.25rem; display: flex; align-items: center; gap: 8px;">
+        <h3 style="margin-top: 0; margin-bottom: 15px; font-weight: 700; color: var(--text-primary); font-size: 1.25rem; display: flex; align-items: center; gap: 8px;">
             {title}
         </h3>
         <div>
@@ -54,7 +54,7 @@ def render_notifications(notifications: List[str], theme: str = "dark") -> None:
     notif_items = ""
     for n in notifications:
         notif_items += textwrap.dedent(f"""
-        <div style="padding: 12px 16px; margin-bottom: 10px; background: rgba(108, 99, 255, 0.05); border-left: 4px solid #6C63FF; border-radius: 4px; font-size: 0.9rem; color: #E2E8F0;">
+        <div style="padding: 12px 16px; margin-bottom: 10px; background: rgba(99, 102, 241, 0.05); border-left: 4px solid var(--primary-indigo); border-radius: 8px; font-size: 0.9rem; color: var(--text-primary);">
             🔔 {n}
         </div>
         """)
@@ -77,11 +77,11 @@ def render_recent_activities_table(activities: List[Dict[str, Any]], theme: str 
                 dt = timestamp
                 
             rows += textwrap.dedent(f"""
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 10px 8px; font-size: 0.85rem; font-weight: 600; color: #A78BFA;">@{act.get('username')}</td>
-                <td style="padding: 10px 8px; font-size: 0.85rem; color: #E2E8F0;"><span style="background: rgba(108, 99, 255, 0.2); color: #C084FC; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">{act.get('action')}</span></td>
-                <td style="padding: 10px 8px; font-size: 0.85rem; color: #94A3B8;">{act.get('details')}</td>
-                <td style="padding: 10px 8px; font-size: 0.80rem; color: #64748B;">{dt}</td>
+            <tr style="border-bottom: 1px solid var(--card-border);">
+                <td style="padding: 10px 8px; font-size: 0.85rem; font-weight: 600; color: var(--accent-light);">@{act.get('username')}</td>
+                <td style="padding: 10px 8px; font-size: 0.85rem; color: var(--text-primary);"><span style="background: rgba(99, 102, 241, 0.15); color: var(--accent-light); padding: 2.5px 7px; border-radius: 6px; font-size: 0.75rem;">{act.get('action')}</span></td>
+                <td style="padding: 10px 8px; font-size: 0.85rem; color: var(--text-secondary);">{act.get('details')}</td>
+                <td style="padding: 10px 8px; font-size: 0.80rem; color: var(--text-muted);">{dt}</td>
             </tr>
             """)
             
@@ -89,7 +89,7 @@ def render_recent_activities_table(activities: List[Dict[str, Any]], theme: str 
         <div style="overflow-x: auto;">
             <table style="width: 100%; border-collapse: collapse; text-align: left;">
                 <thead>
-                    <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); color: #94A3B8; font-size: 0.85rem;">
+                    <tr style="border-bottom: 2px solid var(--card-border); color: var(--text-secondary); font-size: 0.85rem;">
                         <th style="padding: 8px;">User</th>
                         <th style="padding: 8px;">Action</th>
                         <th style="padding: 8px;">Details</th>
