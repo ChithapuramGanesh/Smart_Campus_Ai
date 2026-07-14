@@ -1,0 +1,20 @@
+{
+    "users": [
+        {
+            "id": "98a59c1f-e542-40da-94ea-05e745a28949",
+            "name": "Test Administrator",
+            "email": "admin@smartcampus.edu",
+            "username": "admin",
+            "password": "$2b$12$pGY6fWJqcp8j22VYtW9RsuV4Xjlj9ZpfyN3muonIxk53rQ4t/4Zlm",
+            "created_at": "2026-07-14T14:46:18.794551"
+        },
+        {
+            "id": "327e146a-adc9-4e5f-ac00-a803727d1df2",
+            "name": "John",
+            "email": "johniscool@gmail.com",
+            "username": "john_cool",
+            "password": "$2b$12$0Q8nMtmL7gbLy0hmgeKed.dbWpYos7mqYz0iValM/DIAHDt7aDU9K",
+            "created_at": "2026-07-14T14:49:09.829968"
+        }
+    ]
+}
